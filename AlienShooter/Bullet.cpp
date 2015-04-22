@@ -22,16 +22,26 @@ int Bullet::drawMoveTest(const Shield s[], const Alien a[],int numAliens,int num
     int i;
     bullY = bullY + bullVelY;
     bullet.draw(bullX,bullY);
-    /*for (i=0;i<numShields;i++)
+    for (i=0;i<numShields;i++)
     {
         if((bullY<s[i].shieldY+s[i].shield.height)&&(bullY+bullet.height>s[i].shieldY))
         {
-            if(bullX<s[i].shieldX && bullX>s[i].shieldX+64);
+            if(bullX<s[i].shieldX && bullX>s[i].shieldX+50);
             {
-
+				bullY = 0-bullet.height;
             }
         }
-    }*/
+    }
+
+	for(i=0;i<numAliens;i++)
+	{
+		if ((bullX>a[i].alienX)&&(bullX<a[i].alienX+30))
+			if((bullY<a[i].alienY)&&(bullY>a[i].alienY+36))
+			{
+				bullY = 0-bullet.height;
+
+			}
+	}
 }
 Bullet::~Bullet()
 {

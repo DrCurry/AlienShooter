@@ -2,20 +2,23 @@
 #include "C:\OPENFRAMEWORKS\examples\empty\AlienShooter\Alien.h"
 #include "C:\OPENFRAMEWORKS\examples\empty\AlienShooter\Shield.h"
 #include "C:\OPENFRAMEWORKS\examples\empty\AlienShooter\Bullet.h"
+
 #define MAXBULLETS 20
-#define NumAliens 15
 #define NumShield 6
 
 
 Alien aliens[NumAliens];
 Shield shields[NumShield];
 Bullet bullets[MAXBULLETS];
+int NumAliens  = 15;
+int
 int i;
 int numBullets = NumAliens+5;
 int bulletCounter;
 ofImage spaceShip;
 float clickX;
 int MouseX;
+
 
 
 //--------------------------------------------------------------
@@ -26,7 +29,7 @@ void ofApp::setup(){
     }
     for (i=0;i<NumShield;i++)
     {
-        shields[i].setShield(150*i, 1.15 ,"shield.png");
+        shields[i].setShield(150*i, 2.1 ,"shield.png");
 
     }
     bulletCounter=0;
@@ -35,6 +38,7 @@ spaceShip.loadImage("spaceShip.png");
 
 //--------------------------------------------------------------
 void ofApp::update(){
+
 
 }
 
@@ -52,11 +56,12 @@ void ofApp::draw(){
     {
         bullets[i].drawMoveTest(shields,aliens,NumAliens,NumShield);
     }
-    /*for(i=0;i<5;i++)
+    for(int l=0;l<MAXBULLETS;l++)
     {
-        bullets.drawMoveTest()
+        bullets[l].drawMoveTest(shields,aliens,NumAliens,NumShield);
+
     }
-*/
+
 spaceShip.draw(MouseX,630);
 }
 

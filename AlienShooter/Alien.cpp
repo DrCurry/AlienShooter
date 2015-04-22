@@ -12,6 +12,7 @@ void Alien::setAlien(float x,float y,float VelX,float VelY,char fileName[])
     alienVelX = VelX;
     alienVelY = VelY;
     enemy.loadImage(fileName);
+
 }
 
 void Alien::drawAndMove()
@@ -27,6 +28,7 @@ void Alien::drawAndMove()
         alienVelY = -1*alienVelY;
     }
     enemy.draw(alienX,alienY);
+
 }
 
 Alien::~Alien()
